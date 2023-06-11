@@ -1,0 +1,24 @@
+services:
+  deepherence:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_USER=deepherence
+      - POSTGRES_PASSWORD=deepherence
+      - POSTGRES_DB=deepherence
+      - name = deepherence-db
+    ports:
+      - "6060:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+  pg-admin:
+    image: dpage/pgadmin4:7.3
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@email.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=5050
+    ports:
+      - "2000:5050"
+
+volumes:
+  data:
