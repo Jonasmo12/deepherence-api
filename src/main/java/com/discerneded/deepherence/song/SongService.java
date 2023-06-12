@@ -1,7 +1,8 @@
 package com.discerneded.deepherence.song;
 
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class SongService {
@@ -25,5 +26,9 @@ public class SongService {
     public Song getSong(Long songId) {
         return songRepository.findById(songId)
                 .orElseThrow(() -> new IllegalStateException("Song not found"));
+    }
+
+    public List<Song> getSongs() {
+        return songRepository.findAll();
     }
 }
