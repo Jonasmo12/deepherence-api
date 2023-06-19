@@ -20,6 +20,8 @@ public class Song {
     private LocalDate releaseDate;
     private String artist;
     private String url;
+    @Column(name = "album_id")
+    private Long album;
 
     public Song(
             String name,
